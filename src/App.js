@@ -1,6 +1,7 @@
 import Header from './components/Header';
-import { MdSettingsApplications } from 'react-icons/md';
+import { MdSettingsApplications, MdOutlineRefresh } from 'react-icons/md';
 import i18n from './i18n.json';
+import MainFooter from './components/MainFooter';
 
 function App() {
   return (
@@ -11,6 +12,15 @@ function App() {
         description={i18n.header.description['ko']}
         btnIcon={<MdSettingsApplications size='1.6rem' />}
         btnOnClick={() => {}}
+      />
+
+      <MainFooter
+        mainBtnTitle={i18n.footer.title['ko']}
+        mainBtnOnClick={() => {}}
+        subBtnIcon={<MdOutlineRefresh size='1.6rem' color='#ff3d68' />}
+        subBtnOnClick={() => {}}
+        count={1}
+        showCount={true}
       />
     </div>
   );
