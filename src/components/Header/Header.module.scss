@@ -1,0 +1,36 @@
+.header {
+  width: 100%;
+  height: 120px; /* TODO: declare a variable */
+  padding: 24px;
+  position: fixed;
+  font-family: 'Nanum Gothic';
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  .description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    font-size: 0.9rem;
+    color: #8a8a8a;
+  }
+
+  .button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
