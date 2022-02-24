@@ -1,5 +1,5 @@
 import Header from './components/Header';
-import { AiOutlineMore } from 'react-icons/ai';
+import { MdSettingsApplications } from 'react-icons/md';
 import i18n from './i18n.json';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <Header
         title={i18n.header.title['ko']}
         description={i18n.header.description['ko']}
-        btnIcon={<AiOutlineMore />}
+        btnIcon={<MdSettingsApplications size='1.6rem' />}
         btnOnClick={() => {}}
       />
     </div>

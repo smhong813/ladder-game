@@ -1,16 +1,14 @@
 import React from 'react';
 import styles from './Header.module.scss';
 
-const Header = ({ title, description, btnIcon, btnOnClick }) => {
+const Header = ({ title, description, btnIcon, btnOnClick, className }) => {
   return (
     <header className={styles.header}>
-      <div className={styles.titleBar}>
-        <h1 className={styles.title}>{title}</h1>
-        <button className={styles.button} onClick={btnOnClick}>
-          {btnIcon}
-        </button>
-      </div>
+      <h1 className={styles.title}>{title}</h1>
       <p className={styles.description}>{description}</p>
+      <button className={styles.button} onClick={btnOnClick}>
+        {btnIcon}
+      </button>
     </header>
   );
 };
