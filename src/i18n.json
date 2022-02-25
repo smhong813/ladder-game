@@ -14,5 +14,17 @@
       "en": "Start",
       "ko": "시작"
     }
+  },
+  "player": {
+    "en": "Player",
+    "ko": "플레이어"
+  },
+  "prize": {
+    "en": "Prize",
+    "ko": "경품"
+  },
+  "preset": {
+    "en": "Preset",
+    "ko": "프리셋"
   }
 }
