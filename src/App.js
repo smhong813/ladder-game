@@ -4,6 +4,7 @@ import i18n from './i18n.json';
 import MainFooter from './components/MainFooter';
 import SequenceTextInput from './components/SequenceTextInput';
 import './App.scss';
+import SectionHeader from './components/SectionHeader';
 
 function App() {
   return (
@@ -16,9 +17,11 @@ function App() {
         btnOnClick={() => {}}
       />
       <main className='page'>
+        <SectionHeader title={i18n.player['ko']} btnTitle={i18n.preset['ko']} />
         <SequenceTextInput />
         <SequenceTextInput sequence={1} />
         <SequenceTextInput />
+        <SectionHeader title={i18n.prize['ko']} btnTitle={i18n.preset['ko']} />
       </main>
       <MainFooter
         mainBtnTitle={i18n.footer.title['ko']}
