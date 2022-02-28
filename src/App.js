@@ -1,12 +1,24 @@
+import React, { useState } from 'react';
 import Header from './components/Header';
 import { MdSettingsApplications, MdOutlineRefresh } from 'react-icons/md';
 import i18n from './i18n.json';
 import MainFooter from './components/MainFooter';
-import SequenceTextInput from './components/SequenceTextInput';
+import MultipleInputSection from './components/MultipleInputSection';
 import './App.scss';
-import SectionHeader from './components/SectionHeader';
 
 function App() {
+  const [players, setPlayers] = useState({});
+  const [prizes, setPrizes] = useState({});
+
+  const handlePlayerInput = (players) => {
+    // console.log(players);
+    setPlayers(players);
+  };
+  const handlePrizeInput = (prizes) => {
+    // console.log(prizes);
+    setPrizes(prizes);
+  };
+
   return (
     <>
       {/* TODO: hardcoded 'ko' will be replaced with a value from language selector */}
@@ -17,11 +29,21 @@ function App() {
         btnOnClick={() => {}}
       />
       <main className='page'>
-        <SectionHeader title={i18n.player['ko']} btnTitle={i18n.preset['ko']} />
-        <SequenceTextInput />
-        <SequenceTextInput sequence={1} />
-        <SequenceTextInput />
-        <SectionHeader title={i18n.prize['ko']} btnTitle={i18n.preset['ko']} />
+        <MultipleInputSection
+          id='player-section'
+          title={i18n.player['ko']}
+          headerBtnTitle={i18n.preset['ko']}
+          allowAdd
+          onChange={handlePlayerInput}
+        />
+
+        <MultipleInputSection
+          id='prize-section'
+          title={i18n.prize['ko']}
+          headerBtnTitle={i18n.preset['ko']}
+          count={(Object.keys(players) || []).length}
+          onChange={handlePrizeInput}
+        />
       </main>
       <MainFooter
         mainBtnTitle={i18n.footer.title['ko']}

@@ -1,0 +1,37 @@
+.multipleInputSection {
+  &:not(:first-child) {
+    margin-top: 2rem;
+  }
+
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin: 1rem 0;
+    .sequenceTextInput {
+    }
+  }
+  .addBtnContainer {
+    padding-left: 68px;
+    .addBtn {
+      width: 100%;
+      height: 48px;
+      background-color: #ff3d68;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 1.6rem;
+      border: 0;
+      border-radius: 1rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #fd2957;
+      }
+
+      &:disabled {
+        background-color: #ff3d68;
+        opacity: 0.6;
+      }
+    }
+  }
+}
