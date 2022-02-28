@@ -5,6 +5,7 @@ import i18n from './i18n.json';
 import MainFooter from './components/MainFooter';
 import MultipleInputSection from './components/MultipleInputSection';
 import './App.scss';
+import OptionSelect from './components/OptionSelect';
 
 function App() {
   const [players, setPlayers] = useState({});
@@ -44,13 +45,24 @@ function App() {
           count={(Object.keys(players) || []).length}
           onChange={handlePrizeInput}
         />
+        <OptionSelect
+          name='language'
+          options={[
+            {
+              id: 'ko',
+              value: 'Korean',
+            },
+            { id: 'en', value: 'English' },
+          ]}
+        />
       </main>
+
       <MainFooter
         mainBtnTitle={i18n.footer.title['ko']}
         mainBtnOnClick={() => {}}
         subBtnIcon={<MdOutlineRefresh size='1.6rem' color='#ff3d68' />}
         subBtnOnClick={() => {}}
-        count={1}
+        count={Object.keys(players).length}
         showCount={true}
       />
     </>
