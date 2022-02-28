@@ -6,6 +6,7 @@ import {
 import styles from './OptionSelect.module.scss';
 
 const OptionSelect = ({
+  className,
   name,
   options,
   initialIndex,
@@ -29,7 +30,7 @@ const OptionSelect = ({
   }, [selectedIndex]);
 
   return (
-    <div className={styles.optionSelect}>
+    <div className={`${styles.optionSelect} ${className}`}>
       <button
         className={styles.arrowBtn}
         onClick={() => handleChange(-1)}

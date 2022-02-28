@@ -6,6 +6,7 @@ import MainFooter from './components/MainFooter';
 import MultipleInputSection from './components/MultipleInputSection';
 import './App.scss';
 import OptionSelect from './components/OptionSelect';
+import OptionSelectItem from './components/OptionSelectItem';
 
 function App() {
   const [players, setPlayers] = useState({});
@@ -45,15 +46,17 @@ function App() {
           count={(Object.keys(players) || []).length}
           onChange={handlePrizeInput}
         />
-        <OptionSelect
+        <OptionSelectItem
+          title='언어'
           name='language'
           options={[
             {
               id: 'ko',
-              value: 'Korean',
+              value: '한국어',
             },
-            { id: 'en', value: 'English' },
+            { id: 'en', value: '영어' },
           ]}
+          onChange={(name, option) => console.log(name, option)}
         />
       </main>
 
