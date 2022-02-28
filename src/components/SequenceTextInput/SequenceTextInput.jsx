@@ -3,7 +3,9 @@ import { MdClose } from 'react-icons/md';
 import styles from './SequenceTextInput.module.scss';
 
 const SequenceTextInput = ({
+  className,
   name,
+  value,
   placeholder,
   sequence = 0,
   minLength = 0,
@@ -11,16 +13,16 @@ const SequenceTextInput = ({
   onChange = (name, value) => {},
   sequenceOnClick = (name) => {},
 }) => {
-  const [value, setValue] = useState('');
+  const [inputValue, setInputValue] = useState(value);
   const inputRef = useRef();
 
   const handleChange = (value) => {
-    setValue(value);
+    setInputValue(value);
     onChange(name, value);
   };
 
   return (
-    <div className={styles.sequenceTextInput}>
+    <div className={`${styles.sequenceTextInput} ${className}`}>
       <button className={styles.sequence} onClick={() => sequenceOnClick(name)}>
         {sequence}
       </button>
@@ -34,7 +36,7 @@ const SequenceTextInput = ({
           maxLength={maxLength}
           ref={inputRef}
           onChange={(e) => handleChange(e.target.value)}
-          value={value}
+          value={inputValue}
         />
         <button
           className={`${styles.resetBtn} ${
