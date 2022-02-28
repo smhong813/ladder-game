@@ -7,6 +7,7 @@ import MultipleInputSection from './components/MultipleInputSection';
 import './App.scss';
 import OptionSelect from './components/OptionSelect';
 import OptionSelectItem from './components/OptionSelectItem';
+import Divider from './components/Divider';
 
 function App() {
   const [players, setPlayers] = useState({});
@@ -58,6 +59,7 @@ function App() {
           ]}
           onChange={(name, option) => console.log(name, option)}
         />
+        <Divider className='divider' />
       </main>
 
       <MainFooter
