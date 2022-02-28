@@ -1,0 +1,26 @@
+.optionSelect {
+  display: flex;
+  height: 2.4rem;
+
+  .arrowBtn {
+    width: 2.4rem;
+    background-color: #00c1d4;
+    color: white;
+    border: 0;
+    border-radius: 0.4rem;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.6;
+    }
+  }
+  .option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    margin: 0 0.2rem;
+    padding: 0 1rem;
+    background-color: #eaeaea;
+  }
+}
