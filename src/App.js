@@ -8,10 +8,14 @@ import './App.scss';
 import OptionSelect from './components/OptionSelect';
 import OptionSelectItem from './components/OptionSelectItem';
 import Divider from './components/Divider';
+import BottomSheet from './components/BottomSheet';
+import SettingPopup from './pages/SettingPopup';
 
 function App() {
   const [players, setPlayers] = useState({});
   const [prizes, setPrizes] = useState({});
+
+  const [settingVisible, setSettingVisible] = useState(false);
 
   const handlePlayerInput = (players) => {
     // console.log(players);
@@ -29,7 +33,9 @@ function App() {
         title={i18n.header.title['ko']}
         description={i18n.header.description['ko']}
         btnIcon={<MdSettingsApplications size='1.6rem' />}
-        btnOnClick={() => {}}
+        btnOnClick={() => {
+          setSettingVisible(true);
+        }}
       />
       <main className='page'>
         <MultipleInputSection
@@ -70,6 +76,12 @@ function App() {
         count={Object.keys(players).length}
         showCount={true}
       />
+
+      {settingVisible && (
+        <BottomSheet onClose={() => setSettingVisible(false)}>
+          <SettingPopup />
+        </BottomSheet>
+      )}
     </>
   );
 }
