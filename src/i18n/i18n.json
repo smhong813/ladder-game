@@ -1,0 +1,48 @@
+{
+  "popup": {
+    "title": {
+      "setting": {
+        "en": "Setting",
+        "ko": "설정"
+      }
+    },
+    "option": {
+      "title": {
+        "language": {
+          "en": "Language",
+          "ko": "언어"
+        },
+        "bgm": {
+          "en": "BGM",
+          "ko": "배경음악"
+        },
+        "sound-effect": {
+          "en": "Sound effect",
+          "ko": "효과음"
+        },
+        "ladder-complexity": {
+          "en": "Ladder complexity",
+          "ko": "사다리 복잡도"
+        },
+        "ladder-length": {
+          "en": "Ladder length",
+          "ko": "사다리 길이"
+        },
+        "ladder-direction": {
+          "en": "Ladder direction",
+          "ko": "사다리 방향"
+        }
+      }
+    },
+    "button": {
+      "cancel": {
+        "en": "Cancel",
+        "ko": "취소"
+      },
+      "save": {
+        "en": "Save",
+        "ko": "저장"
+      }
+    }
+  }
+}

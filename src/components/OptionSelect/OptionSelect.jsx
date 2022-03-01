@@ -8,12 +8,12 @@ import styles from './OptionSelect.module.scss';
 const OptionSelect = ({
   className,
   name,
-  options,
+  options = [],
   initialIndex,
   onChange = (name, option) => {},
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(initialIndex || 0);
-  const length = Object.keys(options).length;
+  const length = options.length;
   const handleChange = (direction) => {
     let newValue;
     if (direction > 0) {

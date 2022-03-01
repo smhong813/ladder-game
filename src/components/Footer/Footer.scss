@@ -1,0 +1,28 @@
+.footer {
+  display: flex;
+  height: 50px;
+  padding: 0 24px;
+  gap: 10px;
+
+  button {
+    width: 50%;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &.outline {
+      background-color: transparent;
+      border: 0.1rem solid #ff3d68;
+      color: #ff3d68;
+    }
+    &.solid {
+      background-color: #ff3d68;
+      border: 0;
+      color: #ffffff;
+    }
+  }
+}

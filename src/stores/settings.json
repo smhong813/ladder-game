@@ -1,0 +1,105 @@
+{
+  "language": [
+    {
+      "id": "en",
+      "value": {
+        "en": "English",
+        "ko": "영어"
+      }
+    },
+    {
+      "id": "ko",
+      "value": {
+        "en": "Korean",
+        "ko": "한국어"
+      }
+    }
+  ],
+  "bgm": [
+    {
+      "id": "on",
+      "value": {
+        "en": "On",
+        "ko": "켜기"
+      }
+    },
+    {
+      "id": "off",
+      "value": {
+        "en": "Off",
+        "ko": "끄기"
+      }
+    }
+  ],
+  "sound-effect": [
+    {
+      "id": "on",
+      "value": {
+        "en": "On",
+        "ko": "켜기"
+      }
+    },
+    {
+      "id": "off",
+      "value": {
+        "en": "Off",
+        "ko": "끄기"
+      }
+    }
+  ],
+  "ladder-complexity": [
+    {
+      "id": "simple",
+      "value": {
+        "en": "Simple",
+        "ko": "간단"
+      }
+    },
+    {
+      "id": "normal",
+      "value": {
+        "en": "Normal",
+        "ko": "보통"
+      }
+    },
+    {
+      "id": "complex",
+      "value": {
+        "en": "Complex",
+        "ko": "복잡"
+      }
+    }
+  ],
+  "ladder-length": [
+    {
+      "id": "normal",
+      "value": {
+        "en": "Normal",
+        "ko": "보통"
+      }
+    },
+    {
+      "id": "long",
+      "value": {
+        "en": "Long",
+        "ko": "길게"
+      }
+    }
+  ],
+  "ladder-direction": [
+    {
+      "id": "vertical",
+      "value": {
+        "en": "Vertical",
+        "ko": "세로"
+      }
+    },
+    {
+      "id": "horizontal",
+      "value": {
+        "en": "Horizontal",
+        "ko": "가로"
+      }
+    }
+  ]
+}
