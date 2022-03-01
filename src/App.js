@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
 import { MdSettingsApplications, MdOutlineRefresh } from 'react-icons/md';
-import i18n from './i18n.json';
+
+import Header from './components/Header';
 import MainFooter from './components/MainFooter';
 import MultipleInputSection from './components/MultipleInputSection';
-import './App.scss';
-import OptionSelect from './components/OptionSelect';
-import OptionSelectItem from './components/OptionSelectItem';
-import Divider from './components/Divider';
+
 import BottomSheet from './components/BottomSheet';
 import SettingPopup from './pages/SettingPopup';
+import Chip from './components/Chip';
+
+import i18n from './i18n.json';
+import './App.scss';
 
 function App() {
   const [players, setPlayers] = useState({});
@@ -53,19 +54,14 @@ function App() {
           count={(Object.keys(players) || []).length}
           onChange={handlePrizeInput}
         />
-        <OptionSelectItem
-          title='언어'
-          name='language'
-          options={[
-            {
-              id: 'ko',
-              value: '한국어',
-            },
-            { id: 'en', value: '영어' },
-          ]}
-          onChange={(name, option) => console.log(name, option)}
+
+        <Chip
+          id='chip'
+          title='Animal'
+          description='Horse, Lion, Rabbit'
+          onChange={(data) => console.log(data)}
+          on={true}
         />
-        <Divider className='divider' />
       </main>
 
       <MainFooter
