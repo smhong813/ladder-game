@@ -6,8 +6,8 @@ import SettingPopup from './pages/SettingPopup';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <SettingPopup />
+    <App />
+    {/* <SettingPopup /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
