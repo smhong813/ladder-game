@@ -1,0 +1,215 @@
+{
+  "language": [
+    {
+      "id": "en",
+      "value": {
+        "en": "English",
+        "ko": "영어"
+      }
+    },
+    {
+      "id": "ko",
+      "value": {
+        "en": "Korean",
+        "ko": "한국어"
+      }
+    }
+  ],
+  "bgm": [
+    {
+      "id": "on",
+      "value": {
+        "en": "On",
+        "ko": "켜기"
+      }
+    },
+    {
+      "id": "off",
+      "value": {
+        "en": "Off",
+        "ko": "끄기"
+      }
+    }
+  ],
+  "sound-effect": [
+    {
+      "id": "on",
+      "value": {
+        "en": "On",
+        "ko": "켜기"
+      }
+    },
+    {
+      "id": "off",
+      "value": {
+        "en": "Off",
+        "ko": "끄기"
+      }
+    }
+  ],
+  "ladder-complexity": [
+    {
+      "id": "simple",
+      "value": {
+        "en": "Simple",
+        "ko": "간단"
+      }
+    },
+    {
+      "id": "normal",
+      "value": {
+        "en": "Normal",
+        "ko": "보통"
+      }
+    },
+    {
+      "id": "complex",
+      "value": {
+        "en": "Complex",
+        "ko": "복잡"
+      }
+    }
+  ],
+  "ladder-length": [
+    {
+      "id": "normal",
+      "value": {
+        "en": "Normal",
+        "ko": "보통"
+      }
+    },
+    {
+      "id": "long",
+      "value": {
+        "en": "Long",
+        "ko": "길게"
+      }
+    }
+  ],
+  "ladder-direction": [
+    {
+      "id": "vertical",
+      "value": {
+        "en": "Vertical",
+        "ko": "세로"
+      }
+    },
+    {
+      "id": "horizontal",
+      "value": {
+        "en": "Horizontal",
+        "ko": "가로"
+      }
+    }
+  ],
+  "total-players": [
+    {
+      "id": "two",
+      "value": {
+        "en": "2",
+        "ko": "2"
+      }
+    },
+    {
+      "id": "three",
+      "value": {
+        "en": "3",
+        "ko": "3"
+      }
+    },
+    {
+      "id": "four",
+      "value": {
+        "en": "4",
+        "ko": "4"
+      }
+    },
+    {
+      "id": "five",
+      "value": {
+        "en": "5",
+        "ko": "5"
+      }
+    },
+    {
+      "id": "six",
+      "value": {
+        "en": "6",
+        "ko": "6"
+      }
+    },
+    {
+      "id": "seven",
+      "value": {
+        "en": "7",
+        "ko": "7"
+      }
+    },
+    {
+      "id": "eight",
+      "value": {
+        "en": "8",
+        "ko": "8"
+      }
+    }
+  ],
+  "player-preset": [
+    {
+      "id": "number",
+      "value": {
+        "en": "Number",
+        "ko": "숫자"
+      },
+      "description": {
+        "en": "",
+        "ko": "1, 2, 3, 4, 5, ..."
+      }
+    },
+    {
+      "id": "animal",
+      "value": {
+        "en": "Animal",
+        "ko": "동물"
+      },
+      "description": {
+        "en": "",
+        "ko": "강아지, 고양이, 토끼, ..."
+      }
+    },
+    {
+      "id": "fruit",
+      "value": {
+        "en": "Fruit",
+        "ko": "과일"
+      },
+      "description": {
+        "en": "",
+        "ko": "사과, 바나나, 딸기, 키위, ..."
+      }
+    }
+  ],
+  "prize-preset": [
+    {
+      "id": "bomb",
+      "value": {
+        "en": "Bomb",
+        "ko": "꽝뽑기"
+      },
+      "description": {
+        "en": "",
+        "ko": "통과, 통과, 꽝, ..."
+      }
+    },
+    {
+      "id": "winner",
+      "value": {
+        "en": "Winner",
+        "ko": "당첨"
+      },
+      "description": {
+        "en": "",
+        "ko": "꽝, 꽝, 당첨, ..."
+      }
+    }
+  ]
+}
