@@ -1,0 +1,33 @@
+.popup {
+  font-family: 'Nanum Gothic';
+  background-color: #ffffff;
+  padding-bottom: 2rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.title {
+  padding: 2rem 0 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.optionGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 24px 28px;
+}
+
+.optionDescription {
+  padding: 0 24px;
+  visibility: hidden;
+  &.visible {
+    visibility: visible;
+  }
+}
+
+.footer {
+  margin-top: 2rem;
+}

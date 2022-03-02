@@ -10,9 +10,13 @@ const Chip = ({ id, title, description, onChange = (data) => {}, on }) => {
   useEffect(() => {
     onChange({ id, title, description, selected });
   }, [selected]);
+
+  useEffect(() => {
+    setSelected(on);
+  }, [on]);
   return (
     <button
-      className={`${styles.chip} ${selected && styles.on}`}
+      className={`${styles.chip} ${on && styles.on}`}
       onClick={handleClick}
     >
       {title}

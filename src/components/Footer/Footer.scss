@@ -10,7 +10,7 @@
     font-weight: bold;
     cursor: pointer;
 
-    &:hover {
+    &:disabled {
       opacity: 0.6;
     }
 
@@ -23,6 +23,9 @@
       background-color: #ff3d68;
       border: 0;
       color: #ffffff;
+      &:hover {
+        background-color: #f92653;
+      }
     }
   }
 }

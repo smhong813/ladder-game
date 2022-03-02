@@ -4,6 +4,14 @@
       "setting": {
         "en": "Setting",
         "ko": "설정"
+      },
+      "player-preset": {
+        "en": "Player Setting",
+        "ko": "참여자 설정"
+      },
+      "prize-preset": {
+        "en": "Prize Setting",
+        "ko": "내기 설정"
       }
     },
     "option": {
@@ -31,6 +39,14 @@
         "ladder-direction": {
           "en": "Ladder direction",
           "ko": "사다리 방향"
+        },
+        "total-players": {
+          "en": "Total players",
+          "ko": "참여인원"
+        },
+        "preset": {
+          "en": "Preset",
+          "ko": "프리셋"
         }
       }
     },

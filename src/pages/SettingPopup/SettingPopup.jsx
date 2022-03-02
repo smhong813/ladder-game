@@ -4,7 +4,7 @@ import OptionSelectItem from '../../components/OptionSelectItem';
 
 import { makeOptions } from '../../utils/settings';
 
-import setting from '../../stores/settings.json';
+import setting from '../../store/settings.json';
 import i18n from '../../i18n/i18n.json';
 import styles from './SettingPopup.module.scss';
 import Divider from '../../components/Divider';
