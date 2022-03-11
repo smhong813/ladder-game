@@ -10,6 +10,9 @@ export const makeOptions = (options) => {
     if (option.options) {
       newOption.options = option.options;
     }
+    if (option.chance) {
+      newOption.chance = option.chance;
+    }
     return newOption;
   });
 };

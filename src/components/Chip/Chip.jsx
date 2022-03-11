@@ -6,6 +6,7 @@ const Chip = ({
   title,
   description,
   options,
+  chance,
   onChange = (data) => {},
   on,
 }) => {
@@ -15,7 +16,7 @@ const Chip = ({
     setSelected((prev) => !prev);
   };
   useEffect(() => {
-    onChange({ id, title, description, options, selected });
+    onChange({ id, title, description, options, chance, selected });
   }, [selected]);
 
   useEffect(() => {

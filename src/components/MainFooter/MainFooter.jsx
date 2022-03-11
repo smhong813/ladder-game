@@ -13,11 +13,15 @@ const MainFooter = ({
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <button className={`${styles.outline} ${styles.subBtn}`}>
+        <button
+          className={`${styles.outline} ${styles.subBtn}`}
+          onClick={subBtnOnClick}
+        >
           {subBtnIcon}
         </button>
         <button
           className={`${styles.solid} ${styles.mainBtn}`}
+          onClick={mainBtnOnClick}
           disabled={disabled || count < 2}
         >
           <span className={styles.title}>{mainBtnTitle}</span>

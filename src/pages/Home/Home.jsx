@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MdSettings, MdOutlineRefresh } from 'react-icons/md';
 
 import Header from '../../components/Header';
@@ -14,27 +14,40 @@ import PrizePreset from '../PrizePreset';
 
 import styles from './Home.module.scss';
 import scssVars from '../../styles/variables.scss';
-import { useSelector } from 'react-redux';
-import { selectors as settingSelectors } from '../../store/slices/setting';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectors as settingSelectors,
+  actions as settingActions,
+} from '../../store/slices/setting';
 
 function Home() {
-  const [players, setPlayers] = useState({});
-  const [prizes, setPrizes] = useState({});
+  const [players, setPlayers] = useState([]);
+  const [prizes, setPrizes] = useState([]);
 
   const [settingVisible, setSettingVisible] = useState(false);
   const [playerPresetVisible, setPlayerPresetVisible] = useState(false);
   const [prizePresetVisible, setPrizePresetVisible] = useState(false);
 
+  const dispatch = useDispatch();
+
   const handlePlayerInput = (players) => {
-    console.log(players);
+    // console.log(players);
     setPlayers(players);
   };
   const handlePrizeInput = (prizes) => {
-    console.log(prizes);
+    // console.log(prizes);
     setPrizes(prizes);
   };
 
   const presetPlayers = useSelector(settingSelectors.player);
+  const presetPrizes = useSelector(settingSelectors.prize);
+
+  useEffect(() => {
+    setPlayers(presetPlayers);
+  }, [presetPlayers]);
+  useEffect(() => {
+    setPrizes(presetPrizes);
+  }, [presetPrizes]);
 
   return (
     <>
@@ -57,7 +70,7 @@ function Home() {
             headerBtnOnClick={() => setPlayerPresetVisible(true)}
             allowAdd
             onChange={handlePlayerInput}
-            options={presetPlayers}
+            values={players}
           />
         </div>
 
@@ -67,8 +80,9 @@ function Home() {
           headerBackgroundColor={scssVars['accent-color-2']}
           headerBtnTitle={i18n.preset['en']}
           headerBtnOnClick={() => setPrizePresetVisible(true)}
-          count={(Object.keys(players) || []).length}
+          count={players.length}
           onChange={handlePrizeInput}
+          values={prizes}
         />
       </main>
 
@@ -78,7 +92,7 @@ function Home() {
         subBtnIcon={
           <MdOutlineRefresh size='1.6rem' color={scssVars['primary-color']} />
         }
-        subBtnOnClick={() => {}}
+        subBtnOnClick={() => dispatch(settingActions.reset())}
         count={Object.keys(players).length}
         showCount={true}
         disabled={
@@ -102,7 +116,7 @@ function Home() {
 
       {prizePresetVisible && (
         <BottomSheet onClose={() => setPrizePresetVisible(false)}>
-          <PrizePreset />
+          <PrizePreset count={players.length} />
         </BottomSheet>
       )}
     </>
