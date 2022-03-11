@@ -9,52 +9,59 @@ const MultipleInputSection = ({
   title,
   headerBtnTitle,
   headerBtnOnClick,
+  headerBackgroundColor,
   min,
   max,
   count,
   onChange = (data) => {},
   allowAdd,
+  values,
 }) => {
-  const [inputs, setInputs] = useState({});
-  const [inputSerial, setInputSerial] = useState(1);
+  const [inputs, setInputs] = useState([]);
 
-  const handleInputChange = (name, value) => {
-    setInputs({
-      ...inputs,
-      [name]: value,
-    });
-  };
-
-  const addInput = () => {
-    setInputs((inputs) => ({ ...inputs, [`${id}-input-${inputSerial}`]: '' }));
-    setInputSerial((inputSerial) => inputSerial + 1);
-  };
-
-  const removeInput = (name) => {
-    const newInputs = Object.assign({}, inputs);
-    delete newInputs[name];
+  const handleInputChange = (sequence, value) => {
+    const newInputs = [...inputs];
+    newInputs[sequence - 1] = value;
+    onChange(newInputs);
     setInputs(newInputs);
   };
 
-  useEffect(() => {
-    onChange(inputs);
-  }, [inputs, onChange]);
+  const addInput = () => {
+    setInputs((prev) => {
+      const newInputs = [...prev, ''];
+      onChange(newInputs);
+      return newInputs;
+    });
+  };
+
+  const removeInput = (sequence) => {
+    setInputs((prev) => {
+      const newInputs = [...prev];
+      newInputs.splice(sequence - 1, 1);
+      onChange(newInputs);
+      return newInputs;
+    });
+  };
 
   useEffect(() => {
-    if (count >= 0) {
-      const currentLength = Object.keys(inputs).length;
-      if (count > currentLength) {
-        for (let i = 0; i < count - currentLength; i++) {
-          addInput();
-        }
-      } else if (count < currentLength) {
-        const ids = Object.keys(inputs);
-        for (let i = 0; i < currentLength - count; i++) {
-          removeInput(ids.pop());
-        }
+    console.log('inputs.length:', inputs.length);
+    console.log('count:', count);
+    if (inputs.length < count) {
+      for (let i = inputs.length; i < count; i++) {
+        addInput();
+      }
+    } else if (inputs.length > count) {
+      for (let i = inputs.length; i > count; i--) {
+        removeInput(i);
       }
     }
   }, [count]);
+
+  useEffect(() => {
+    if (!!values) {
+      setInputs(values);
+    }
+  }, [values]);
 
   useEffect(() => {
     // TODO: Make two inputs by default.
@@ -64,16 +71,18 @@ const MultipleInputSection = ({
     <section className={styles.multipleInputSection}>
       <SectionHeader
         title={title}
+        backgroundColor={headerBackgroundColor}
         btnTitle={headerBtnTitle}
         btnOnClick={headerBtnOnClick}
+        btnDisabled={count < 2 || false}
       />
       <div className={styles.inputContainer}>
-        {(Object.keys(inputs) || []).map((key, index) => (
+        {inputs.map((value, index) => (
           <SequenceTextInput
-            key={key}
+            key={`${id}-${index}`}
             className={styles.sequenceTextInput}
-            name={key}
-            value={inputs[key]}
+            name={`${id}-${index}`}
+            value={value}
             sequence={index + 1}
             onChange={handleInputChange}
             sequenceOnClick={removeInput}

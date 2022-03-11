@@ -1,25 +1,27 @@
+@import '../../styles/variables.scss';
+
 .popup {
-  font-family: 'Nanum Gothic';
+  font-family: $font-regular;
   background-color: #ffffff;
-  padding-bottom: 2rem;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-}
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
 
-.title {
-  padding: 2rem 0 0;
-  font-size: 1.4rem;
-  font-weight: bold;
-  text-align: center;
-}
+  .title {
+    padding: 35px 0 0;
+    font-size: 17px;
+    letter-spacing: 0.16px;
+    text-align: center;
+    color: $dark;
+  }
 
-.optionGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 20px 24px 28px;
-}
+  .optionGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 24px 28px;
+  }
 
-.footer {
-  margin-top: 2rem;
+  .footer {
+    margin-top: 16px;
+  }
 }

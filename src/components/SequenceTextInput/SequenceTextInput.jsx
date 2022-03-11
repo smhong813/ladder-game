@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { MdClose } from 'react-icons/md';
 import styles from './SequenceTextInput.module.scss';
 
@@ -10,20 +10,29 @@ const SequenceTextInput = ({
   sequence = 0,
   minLength = 0,
   maxLength = 20,
-  onChange = (name, value) => {},
-  sequenceOnClick = (name) => {},
+  onChange = (sequence, value) => {},
+  sequenceOnClick = (sequence) => {},
 }) => {
   const [inputValue, setInputValue] = useState(value);
   const inputRef = useRef();
 
   const handleChange = (value) => {
     setInputValue(value);
-    onChange(name, value);
+    onChange(sequence, value);
   };
+
+  useEffect(() => {
+    if (!!value) {
+      setInputValue(value);
+    }
+  }, [value]);
 
   return (
     <div className={`${styles.sequenceTextInput} ${className}`}>
-      <button className={styles.sequence} onClick={() => sequenceOnClick(name)}>
+      <button
+        className={styles.sequence}
+        onClick={() => sequenceOnClick(sequence)}
+      >
         {sequence}
       </button>
       <div className={styles.textInput}>

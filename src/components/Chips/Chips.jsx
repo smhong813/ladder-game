@@ -32,6 +32,8 @@ const Chips = ({
           id={option.id}
           title={option.value}
           description={option.description}
+          options={option.options}
+          chance={option.chance}
           onChange={handleChip}
           on={chips.some((chip) => chip.id === option.id)}
         />

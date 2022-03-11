@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { actions, selectors } from '../../store/slices/bottomSheet';
 import styles from './BottomSheet.module.scss';
 
 const BottomSheet = ({
@@ -13,6 +15,14 @@ const BottomSheet = ({
   const [dimOpacity, setDimOpacity] = useState(0);
   const dimRef = useRef();
   const popupRef = useRef();
+  const dispatch = useDispatch();
+  const closeState = useSelector(selectors.close);
+
+  useEffect(() => {
+    if (closeState) {
+      close();
+    }
+  }, [closeState]);
 
   const open = () => {
     const poupAnim = popupRef.current.animate(
@@ -58,6 +68,7 @@ const BottomSheet = ({
     dimAnim.onfinish = () => {
       setDimOpacity(0);
       onClose();
+      dispatch(actions.close(false));
     };
   };
 

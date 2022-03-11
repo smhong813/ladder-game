@@ -1,13 +1,15 @@
+@import '../../styles/variables.scss';
+
 .optionSelect {
   display: flex;
-  height: 2.4rem;
+  height: 30px;
 
   .arrowBtn {
-    width: 2.4rem;
-    background-color: #00c1d4;
+    width: 30px;
+    background-color: $secondary-color;
     color: white;
     border: 0;
-    border-radius: 0.4rem;
+    border-radius: 4px;
     cursor: pointer;
 
     &:disabled {
@@ -19,8 +21,10 @@
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-    margin: 0 0.2rem;
-    padding: 0 1rem;
-    background-color: #eaeaea;
+    margin: 0 3px;
+    padding: 0 16px;
+    background-color: $grey-5;
+    font-size: 15px;
+    border-radius: 4px;
   }
 }

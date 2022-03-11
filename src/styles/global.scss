@@ -1,0 +1,19 @@
+@import './reset.scss';
+@import './fonts.scss';
+@import './variables.scss';
+
+* {
+  font-family: 'FilsonProRegular', 'sans-serif';
+  box-sizing: border-box;
+}
+
+.page {
+  height: calc(100vh);
+  background-color: $grey-5;
+  padding: $header-height $gutter $footer-height;
+  overflow-y: scroll;
+}
+
+.divider {
+  margin-top: 10px;
+}

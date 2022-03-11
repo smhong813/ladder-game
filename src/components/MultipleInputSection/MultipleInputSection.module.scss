@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .multipleInputSection {
   &:not(:first-child) {
     margin-top: 2rem;
@@ -12,11 +14,14 @@
     }
   }
   .addBtnContainer {
-    padding-left: 68px;
+    padding-left: 52px;
     .addBtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 100%;
-      height: 48px;
-      background-color: #ff3d68;
+      height: 40px;
+      background-color: $accent-color-4;
       color: #ffffff;
       font-weight: bold;
       font-size: 1.6rem;
@@ -24,13 +29,10 @@
       border-radius: 1rem;
       cursor: pointer;
 
-      &:hover {
-        background-color: #fd2957;
-      }
-
       &:disabled {
-        background-color: #ff3d68;
-        opacity: 0.6;
+        color: rgba(0, 0, 0, 0.15);
+        background-color: rgba(0, 0, 0, 0.12);
+        border: solid 1px rgba(224, 224, 224, 0.12);
       }
     }
   }
