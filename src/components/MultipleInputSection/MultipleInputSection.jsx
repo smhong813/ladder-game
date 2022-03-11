@@ -9,14 +9,18 @@ const MultipleInputSection = ({
   title,
   headerBtnTitle,
   headerBtnOnClick,
+  headerBackgroundColor,
   min,
   max,
   count,
   onChange = (data) => {},
   allowAdd,
+  options = {},
 }) => {
-  const [inputs, setInputs] = useState({});
-  const [inputSerial, setInputSerial] = useState(1);
+  const [inputs, setInputs] = useState(options);
+  const [inputSerial, setInputSerial] = useState(
+    Object.keys(options).length + 1
+  );
 
   const handleInputChange = (name, value) => {
     setInputs({
@@ -64,6 +68,7 @@ const MultipleInputSection = ({
     <section className={styles.multipleInputSection}>
       <SectionHeader
         title={title}
+        backgroundColor={headerBackgroundColor}
         btnTitle={headerBtnTitle}
         btnOnClick={headerBtnOnClick}
       />

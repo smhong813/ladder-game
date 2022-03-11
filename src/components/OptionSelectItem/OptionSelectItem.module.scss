@@ -1,10 +1,14 @@
+@import '../../styles/variables.scss';
+
 .optionSelectItem {
-  font-family: 'Nanum Gothic';
+  display: flex;
+  align-items: center;
   .title {
+    flex-grow: 1;
     line-height: 2;
-    font-weight: bold;
-    font-size: 1.1rem;
+    font: 15px $font-regular;
   }
   .optionSelect {
+    width: 50%;
   }
 }

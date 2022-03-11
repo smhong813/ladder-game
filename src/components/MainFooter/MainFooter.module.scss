@@ -1,66 +1,85 @@
+@import '../../styles/variables.scss';
+
 .footer {
-  display: flex;
   width: 100%;
-  height: 50px; /* TODO: declare a varilable */
   position: fixed;
   left: 0;
   bottom: 0;
-  font-family: 'Nanum Gothic';
-  background-color: #ffffff;
+  padding: 16px $gutter;
+  background-color: $grey-5;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 
-  .subBtn {
-    padding: 0 2rem;
-    margin-right: 1rem;
-    border-top: 0.1rem solid #ff3d68;
-    border-bottom: 0.1rem solid #ff3d68;
-    border-right: 0.1rem solid #ff3d68;
-    border-top-right-radius: 1rem;
-    background-color: transparent;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  button {
+    width: 100%;
+    border-radius: 4px;
+    font: 15px $font-bold;
+    letter-spacing: 0.43px;
+    text-transform: uppercase;
+    border: solid 1px $primary-color;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+  }
 
-    &:hover {
-      background-color: #ff3d68; /* TODO: Color refactoring */
-      svg {
-        fill: #ffffff;
-      }
+  .outline {
+    color: $primary-color;
+    background-color: white;
+
+    &:disabled {
+      color: rgba(0, 0, 0, 0.15);
+      background-color: white;
+      border: solid 1px rgba(224, 224, 224, 0.12);
     }
   }
 
-  .mainBtn {
-    flex-grow: 1;
-    background-color: #ff3d68;
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 1.2rem;
-    border: 0;
-    border-top-left-radius: 1rem;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #fd2957;
-    }
+  .solid {
+    color: white;
+    background-color: $primary-color;
 
     &:disabled {
-      background-color: #ff3d68;
-      opacity: 0.6;
+      color: rgba(0, 0, 0, 0.15);
+      background-color: rgba(0, 0, 0, 0.12);
+      border: solid 1px rgba(224, 224, 224, 0.12);
     }
+  }
 
+  .subBtn {
+    width: 48px;
+    flex-shrink: 0;
+  }
+
+  .mainBtn {
+    position: relative;
     .count {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 2rem;
-      height: 2rem;
-      margin-right: 1rem;
+      width: 26px;
+      height: 26px;
+      margin-right: 10px;
       position: absolute;
       top: 50%;
       right: 0;
       transform: translateY(-50%);
       border-radius: 50%;
       background-color: white;
-      color: #ff3d68;
-      font-weight: normal;
-      font-size: 0.9rem;
+      color: $primary-color;
+      font-family: $font-regular;
+      font-size: 13px;
+    }
+    &:disabled {
+      .count {
+        color: rgba(0, 0, 0, 0.15);
+      }
     }
   }
 }

@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Chip.module.scss';
 
-const Chip = ({ id, title, description, onChange = (data) => {}, on }) => {
+const Chip = ({
+  id,
+  title,
+  description,
+  options,
+  onChange = (data) => {},
+  on,
+}) => {
   const [selected, setSelected] = useState(on || false);
 
   const handleClick = () => {
     setSelected((prev) => !prev);
   };
   useEffect(() => {
-    onChange({ id, title, description, selected });
+    onChange({ id, title, description, options, selected });
   }, [selected]);
 
   useEffect(() => {

@@ -8,14 +8,22 @@ const MainFooter = ({
   subBtnOnClick,
   count,
   showCount,
+  disabled = false,
 }) => {
   return (
     <footer className={styles.footer}>
-      <button className={styles.subBtn}>{subBtnIcon}</button>
-      <button className={styles.mainBtn} disabled={count === 0}>
-        <span className={styles.title}>{mainBtnTitle}</span>
-        {showCount && <span className={styles.count}>{count}</span>}
-      </button>
+      <div className={styles.container}>
+        <button className={`${styles.outline} ${styles.subBtn}`}>
+          {subBtnIcon}
+        </button>
+        <button
+          className={`${styles.solid} ${styles.mainBtn}`}
+          disabled={disabled || count < 2}
+        >
+          <span className={styles.title}>{mainBtnTitle}</span>
+          {showCount && <span className={styles.count}>{count}</span>}
+        </button>
+      </div>
     </footer>
   );
 };

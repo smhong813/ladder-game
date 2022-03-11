@@ -1,12 +1,12 @@
 {
   "header": {
     "title": {
-      "en": "",
+      "en": "Ladder Game",
       "ko": "사다리 게임"
     },
     "description": {
-      "en": "",
-      "ko": "오늘은 누가 걸릴까?"
+      "en": "Who will be the winner?",
+      "ko": "과연 승자는 누가 될까요?"
     }
   },
   "footer": {

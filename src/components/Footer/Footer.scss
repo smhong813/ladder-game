@@ -1,30 +1,51 @@
+@import '../../styles/variables.scss';
+
 .footer {
   display: flex;
-  height: 50px;
-  padding: 0 24px;
-  gap: 10px;
+  height: $footer-height;
+  padding: 16px $gutter;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    gap: 16px;
+  }
 
   button {
-    width: 50%;
-    font-size: 1rem;
-    font-weight: bold;
+    width: 100%;
+    border-radius: 4px;
+    font: 15px $font-bold;
+    letter-spacing: 0.43px;
+    text-transform: uppercase;
+    border: solid 1px $primary-color;
     cursor: pointer;
-
-    &:disabled {
-      opacity: 0.6;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
 
     &.outline {
-      background-color: transparent;
-      border: 0.1rem solid #ff3d68;
-      color: #ff3d68;
+      color: $primary-color;
+      background-color: white;
+
+      &:disabled {
+        color: rgba(0, 0, 0, 0.15);
+        background-color: white;
+        border: solid 1px rgba(224, 224, 224, 0.12);
+      }
     }
+
     &.solid {
-      background-color: #ff3d68;
-      border: 0;
-      color: #ffffff;
-      &:hover {
-        background-color: #f92653;
+      color: white;
+      background-color: $primary-color;
+
+      &:disabled {
+        color: rgba(0, 0, 0, 0.15);
+        background-color: rgba(0, 0, 0, 0.12);
+        border: solid 1px rgba(224, 224, 224, 0.12);
       }
     }
   }

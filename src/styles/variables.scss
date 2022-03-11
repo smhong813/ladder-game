@@ -1,0 +1,52 @@
+$max-width-desktop: 1024px;
+
+$gutter: 24px;
+$header-height: 120px;
+$footer-height: 74px;
+
+$shadow-1: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 3px 1px -2px rgba(0, 0, 0, 0.12),
+  0 2px 2px 0 rgba(0, 0, 0, 0.14);
+$shadow-2: 0 4px 14px 0 rgba(166, 179, 194, 0.3);
+
+$primary-color: #f47e41;
+$secondary-color: #13214a;
+$accent-color-1: #fdd704;
+$accent-color-2: #df9c8c;
+$accent-color-3: #9e98c0;
+$accent-color-4: #687b9b;
+$accent-color-5: #f9dbcb;
+$accent-color-6: #41656a;
+$grey-1: #2f2f42;
+$grey-2: #fbfbfb;
+$grey-3: #97979f;
+$grey-4: rgba(60, 60, 67, 0.6);
+$grey-5: #fafafa;
+$grey-6: #6b6b6b;
+$dark: rgba(0, 0, 0, 0.87);
+$error-bg: #c73030;
+
+$font-bold: 'FilsonProBold', sans-serif;
+$font-regular: 'FilsonProRegular', sans-serif;
+$font-light: 'FilsonProLight', sans-serif;
+$font-italic: 'FilsonProRegularItalic', sans-serif;
+
+$ease-in: cubic-bezier(0.43, 0.045, 0.1, 0.95);
+
+$bp-xs: 480px;
+$bp-sm: 768px;
+$bp-md: 991px;
+
+:export {
+  primary-color: $primary-color;
+  secondary-color: $secondary-color;
+  accent-color-1: $accent-color-1;
+  accent-color-2: $accent-color-2;
+  accent-color-3: $accent-color-3;
+  accent-color-4: $accent-color-4;
+  accent-color-5: $accent-color-5;
+  accent-color-6: $accent-color-6;
+
+  bp-xs: $bp-xs;
+  bp-sm: $bp-sm;
+  bp-md: $bp-md;
+}

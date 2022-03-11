@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { Provider } from 'react-redux';
+
+import './styles/global.scss';
 import App from './App';
-import SettingPopup from './pages/SettingPopup';
-import PlayerPreset from './pages/PlayerPreset';
-import PrizePreset from './pages/PrizePreset';
+
+import store from './store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-    {/* <SettingPopup /> */}
-    {/* <PlayerPreset /> */}
-    {/* <PrizePreset /> */}
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

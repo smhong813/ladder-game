@@ -161,8 +161,12 @@
         "ko": "숫자"
       },
       "description": {
-        "en": "",
+        "en": "1, 2, 3, 4, 5, ...",
         "ko": "1, 2, 3, 4, 5, ..."
+      },
+      "options": {
+        "en": ["1", "2", "3", "4", "5", "6", "7", "8"],
+        "ko": ["1", "2", "3", "4", "5", "6", "7", "8"]
       }
     },
     {
@@ -172,8 +176,12 @@
         "ko": "동물"
       },
       "description": {
-        "en": "",
+        "en": "Dog, Cat, Rabbit, ...",
         "ko": "강아지, 고양이, 토끼, ..."
+      },
+      "options": {
+        "en": ["Dog", "Cat", "Rabbit", "Lion", "Tiger", "Deer", "Sheep", "Cow"],
+        "ko": ["강아지", "고양이", "토끼", "사자", "호랑이", "사슴", "양", "소"]
       }
     },
     {
@@ -183,8 +191,30 @@
         "ko": "과일"
       },
       "description": {
-        "en": "",
+        "en": "Apple, Banana, Strawberry, Kiwi, ...",
         "ko": "사과, 바나나, 딸기, 키위, ..."
+      },
+      "options": {
+        "en": [
+          "Apple",
+          "Banana",
+          "Strawberry",
+          "Kiwi",
+          "Watermelon",
+          "Melon",
+          "Pineapple",
+          "Tomato"
+        ],
+        "ko": [
+          "사과",
+          "바나나",
+          "딸기",
+          "키위",
+          "수박",
+          "참외",
+          "파인애플",
+          "토마토"
+        ]
       }
     }
   ],
@@ -196,9 +226,14 @@
         "ko": "꽝뽑기"
       },
       "description": {
-        "en": "",
-        "ko": "통과, 통과, 꽝, ..."
-      }
+        "en": "Lucky, Lucky, Bomb, ...",
+        "ko": "럭키, 럭키, 꽝, ..."
+      },
+      "options": {
+        "en": ["Bomb", "Lucky"],
+        "ko": ["꽝", "통과"]
+      },
+      "chance": "one"
     },
     {
       "id": "winner",
@@ -207,9 +242,30 @@
         "ko": "당첨"
       },
       "description": {
-        "en": "",
+        "en": "Lose, Lose, Win, ...",
         "ko": "꽝, 꽝, 당첨, ..."
-      }
+      },
+      "options": {
+        "en": ["Win", "Lose"],
+        "ko": ["당첨", "꽝"]
+      },
+      "chance": "one"
+    },
+    {
+      "id": "team",
+      "value": {
+        "en": "Team",
+        "ko": "팀"
+      },
+      "description": {
+        "en": "A team, B team, A team, ...",
+        "ko": "A팀, B팀, A팀, ..."
+      },
+      "options": {
+        "en": ["A team", "B team"],
+        "ko": ["A팀", "B팀"]
+      },
+      "chance": "half"
     }
   ]
 }
