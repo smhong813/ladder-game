@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { MdSettings, MdOutlineRefresh } from 'react-icons/md';
+import { MdOutlineRefresh } from 'react-icons/md';
 
-import Header from '../../components/Header';
 import MainFooter from '../../components/MainFooter';
 import MultipleInputSection from '../../components/MultipleInputSection';
 
 import BottomSheet from '../../components/BottomSheet';
-import SettingPopup from '../../pages/SettingPopup';
 
 import i18n from './i18n.json';
 import PlayerPreset from '../PlayerPreset';
@@ -24,7 +22,6 @@ function Home() {
   const [players, setPlayers] = useState([]);
   const [prizes, setPrizes] = useState([]);
 
-  const [settingVisible, setSettingVisible] = useState(false);
   const [playerPresetVisible, setPlayerPresetVisible] = useState(false);
   const [prizePresetVisible, setPrizePresetVisible] = useState(false);
 
@@ -52,14 +49,6 @@ function Home() {
   return (
     <>
       {/* TODO: hardcoded 'ko' will be replaced with a value from language selector */}
-      <Header
-        title={i18n.header.title['en']}
-        description={i18n.header.description['en']}
-        btnIcon={<MdSettings size='24px' />}
-        btnOnClick={() => {
-          setSettingVisible(true);
-        }}
-      />
       <main className={`page ${styles.home}`}>
         <div className={styles.playerSection}>
           <MultipleInputSection
@@ -101,12 +90,6 @@ function Home() {
           Object.values(prizes).includes('')
         }
       />
-
-      {settingVisible && (
-        <BottomSheet onClose={() => setSettingVisible(false)}>
-          <SettingPopup />
-        </BottomSheet>
-      )}
 
       {playerPresetVisible && (
         <BottomSheet onClose={() => setPlayerPresetVisible(false)}>
