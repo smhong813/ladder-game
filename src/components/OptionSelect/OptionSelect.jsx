@@ -29,6 +29,7 @@ const OptionSelect = ({
     onChange(name, options[selectedIndex]);
   }, [selectedIndex]);
 
+  // console.log('options:', options, 'initialIndex:', initialIndex);
   return (
     <div className={`${styles.optionSelect} ${className}`}>
       <button

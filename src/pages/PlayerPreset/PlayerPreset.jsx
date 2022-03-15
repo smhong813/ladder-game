@@ -13,6 +13,7 @@ import ChipsItem from '../../components/ChipsItem';
 import { actions as settingActions } from '../../store/slices/setting';
 import { actions as bottomSheetActions } from '../../store/slices/bottomSheet';
 
+// Preset popups(Player and Prize) don't maintain its state.
 const PlayerPreset = () => {
   const [chips, setChips] = useState([]);
   const [total, setTotal] = useState(0);

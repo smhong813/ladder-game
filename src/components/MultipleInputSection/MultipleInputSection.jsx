@@ -44,8 +44,8 @@ const MultipleInputSection = ({
   };
 
   useEffect(() => {
-    console.log('inputs.length:', inputs.length);
-    console.log('count:', count);
+    // console.log('inputs.length:', inputs.length);
+    // console.log('count:', count);
     if (inputs.length < count) {
       for (let i = inputs.length; i < count; i++) {
         addInput();
