@@ -2,21 +2,19 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   app: {
-    lang: 'ko', // TODO: change into en
-    bgm: true,
-    soundEffect: true,
+    lang: 'en',
+    bgm: 'off',
+    soundEffect: 'off',
     ladderComplexity: 'normal',
     ladderLength: 'normal',
     ladderDirection: 'vertical',
   },
   player: {
     preset: null,
-    total: 0, // TODO: check if it is necessary
     players: [],
   },
   prize: {
     preset: null,
-    total: 0, // TODO: check if it is necessary
     prizes: [],
   },
 };
@@ -48,8 +46,8 @@ const settingSlice = createSlice({
 
 export const actions = settingSlice.actions;
 export const selectors = {
+  app: (store) => store.setting.app,
   player: (store) => store.setting.player.players,
   prize: (store) => store.setting.prize.prizes,
 };
-// TODO: selectors
 export default settingSlice.reducer;

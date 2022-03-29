@@ -1,6 +1,18 @@
+@import '../../styles/variables.scss';
+
 .chipsItem {
+  display: flex;
+  flex-direction: column;
   .title {
     line-height: 2;
     font-size: 15px;
+  }
+}
+
+@media only screen and (min-width: $bp-sm) {
+  .chipsItem {
+    .title {
+      margin-bottom: 20px;
+    }
   }
 }

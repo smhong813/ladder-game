@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { MdSettings, MdOutlineRefresh } from 'react-icons/md';
+import { MdOutlineRefresh } from 'react-icons/md';
 
-import Header from '../../components/Header';
 import MainFooter from '../../components/MainFooter';
 import MultipleInputSection from '../../components/MultipleInputSection';
 
 import BottomSheet from '../../components/BottomSheet';
-import SettingPopup from '../../pages/SettingPopup';
 
 import i18n from './i18n.json';
 import PlayerPreset from '../PlayerPreset';
@@ -19,23 +17,25 @@ import {
   selectors as settingSelectors,
   actions as settingActions,
 } from '../../store/slices/setting';
+import { useNavigate } from 'react-router-dom';
+import { langSelectors } from '../../store/slices/lang';
 
 function Home() {
   const [players, setPlayers] = useState([]);
   const [prizes, setPrizes] = useState([]);
 
-  const [settingVisible, setSettingVisible] = useState(false);
   const [playerPresetVisible, setPlayerPresetVisible] = useState(false);
   const [prizePresetVisible, setPrizePresetVisible] = useState(false);
 
+  const lang = useSelector(langSelectors.currentLang);
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handlePlayerInput = (players) => {
-    // console.log(players);
     setPlayers(players);
   };
   const handlePrizeInput = (prizes) => {
-    // console.log(prizes);
     setPrizes(prizes);
   };
 
@@ -51,44 +51,38 @@ function Home() {
 
   return (
     <>
-      {/* TODO: hardcoded 'ko' will be replaced with a value from language selector */}
-      <Header
-        title={i18n.header.title['en']}
-        description={i18n.header.description['en']}
-        btnIcon={<MdSettings size='24px' />}
-        btnOnClick={() => {
-          setSettingVisible(true);
-        }}
-      />
       <main className={`page ${styles.home}`}>
         <div className={styles.playerSection}>
           <MultipleInputSection
             id='player-section'
-            title={i18n.player['en']}
+            title={i18n.player[lang]}
             headerBackgroundColor={scssVars['accent-color-3']}
-            headerBtnTitle={i18n.preset['en']}
+            headerBtnTitle={i18n.preset[lang]}
             headerBtnOnClick={() => setPlayerPresetVisible(true)}
             allowAdd
             onChange={handlePlayerInput}
             values={players}
           />
         </div>
-
-        <MultipleInputSection
-          id='prize-section'
-          title={i18n.prize['en']}
-          headerBackgroundColor={scssVars['accent-color-2']}
-          headerBtnTitle={i18n.preset['en']}
-          headerBtnOnClick={() => setPrizePresetVisible(true)}
-          count={players.length}
-          onChange={handlePrizeInput}
-          values={prizes}
-        />
+        <div className={styles.prizeSection}>
+          <MultipleInputSection
+            id='prize-section'
+            title={i18n.prize[lang]}
+            headerBackgroundColor={scssVars['accent-color-2']}
+            headerBtnTitle={i18n.preset[lang]}
+            headerBtnOnClick={() => setPrizePresetVisible(true)}
+            count={players.length}
+            onChange={handlePrizeInput}
+            values={prizes}
+          />
+        </div>
       </main>
 
       <MainFooter
-        mainBtnTitle={i18n.footer.title['en']}
-        mainBtnOnClick={() => {}}
+        mainBtnTitle={i18n.footer.title[lang]}
+        mainBtnOnClick={() => {
+          navigate('/ladder');
+        }}
         subBtnIcon={
           <MdOutlineRefresh size='1.6rem' color={scssVars['primary-color']} />
         }
@@ -101,12 +95,6 @@ function Home() {
           Object.values(prizes).includes('')
         }
       />
-
-      {settingVisible && (
-        <BottomSheet onClose={() => setSettingVisible(false)}>
-          <SettingPopup />
-        </BottomSheet>
-      )}
 
       {playerPresetVisible && (
         <BottomSheet onClose={() => setPlayerPresetVisible(false)}>

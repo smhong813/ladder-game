@@ -1,0 +1,69 @@
+@import '../../styles/variables.scss';
+
+.empty {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.playerList,
+.prizeList {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+}
+.prizeList {
+  margin-bottom: $gutter;
+  transform: translateY(-10px);
+}
+
+.player,
+.prize {
+  width: 40px;
+  border: 0;
+  border-radius: 8px;
+  color: #ffffff;
+  background-color: #dddddd;
+  cursor: pointer;
+}
+.player {
+  //   background-color: $accent-color-4;
+}
+
+.canvas {
+  overflow-x: scroll;
+}
+
+.popup {
+  width: 60%;
+  padding: $gutter;
+  background-color: #ffffff;
+  border-radius: 8px;
+  animation: popup 0.5s infinite alternate;
+}
+
+@keyframes popup {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+.popupTitle {
+  font: 16px/1.4 $font-regular;
+  text-align: center;
+  margin-bottom: 10px;
+  color: $dark;
+}
+
+.popupDescription {
+  font: 18px/1.2 $font-bold;
+  text-align: center;
+}
+
+@media only screen and (min-width: $bp-sm) {
+  .popup {
+    max-width: 360px;
+    padding: $gutter * 2;
+  }
+}

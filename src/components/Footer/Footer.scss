@@ -50,3 +50,9 @@
     }
   }
 }
+
+@media only screen and (min-width: $bp-sm) {
+  .footer {
+    padding: 16px $gutter * 4;
+  }
+}

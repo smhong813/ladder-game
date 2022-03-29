@@ -83,3 +83,14 @@
     }
   }
 }
+
+@media only screen and (min-width: $bp-sm) {
+  .footer {
+    max-width: $max-width-desktop-percent;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: none;
+    padding-left: $gutter * 3;
+    padding-right: $gutter * 3;
+  }
+}

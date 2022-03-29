@@ -5,6 +5,15 @@
 * {
   font-family: 'FilsonProRegular', 'sans-serif';
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  background-color: $grey-5;
+}
+
+button {
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .page {
@@ -16,4 +25,10 @@
 
 .divider {
   margin-top: 10px;
+}
+
+@media only screen and (min-width: $bp-sm) {
+  .page {
+    padding-top: $header-height + $gutter;
+  }
 }
