@@ -35,3 +35,17 @@
     cursor: pointer;
   }
 }
+
+@media only screen and (min-width: $bp-sm) {
+  .header {
+    max-width: $max-width-desktop-percent;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: $gutter * 3;
+    padding-right: $gutter * 3;
+
+    .button {
+      right: $gutter * 2;
+    }
+  }
+}

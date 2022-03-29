@@ -65,17 +65,18 @@ function Home() {
             values={players}
           />
         </div>
-
-        <MultipleInputSection
-          id='prize-section'
-          title={i18n.prize[lang]}
-          headerBackgroundColor={scssVars['accent-color-2']}
-          headerBtnTitle={i18n.preset[lang]}
-          headerBtnOnClick={() => setPrizePresetVisible(true)}
-          count={players.length}
-          onChange={handlePrizeInput}
-          values={prizes}
-        />
+        <div className={styles.prizeSection}>
+          <MultipleInputSection
+            id='prize-section'
+            title={i18n.prize[lang]}
+            headerBackgroundColor={scssVars['accent-color-2']}
+            headerBtnTitle={i18n.preset[lang]}
+            headerBtnOnClick={() => setPrizePresetVisible(true)}
+            count={players.length}
+            onChange={handlePrizeInput}
+            values={prizes}
+          />
+        </div>
       </main>
 
       <MainFooter

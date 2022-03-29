@@ -12,3 +12,11 @@
     width: 50%;
   }
 }
+
+@media only screen and (min-width: $bp-sm) {
+  .optionSelectItem {
+    .optionSelect {
+      max-width: 250px;
+    }
+  }
+}

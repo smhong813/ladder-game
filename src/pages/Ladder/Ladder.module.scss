@@ -60,3 +60,10 @@
   font: 18px/1.2 $font-bold;
   text-align: center;
 }
+
+@media only screen and (min-width: $bp-sm) {
+  .popup {
+    max-width: 360px;
+    padding: $gutter * 2;
+  }
+}

@@ -8,3 +8,15 @@
   //   background-color: $accent-color-3;
   //   border-radius: 8px;
 }
+
+@media only screen and (min-width: $bp-sm) {
+  .home {
+    display: flex;
+    gap: $gutter * 2;
+  }
+
+  .playerSection,
+  .prizeSection {
+    width: 50%;
+  }
+}

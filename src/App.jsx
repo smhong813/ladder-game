@@ -18,7 +18,7 @@ function App() {
   const lang = useSelector(langSelectors.currentLang);
 
   return (
-    <>
+    <div className='app'>
       <Header
         title={i18n.header.title[lang]}
         description={i18n.header.description[lang]}
@@ -37,7 +37,7 @@ function App() {
           <SettingPopup />
         </BottomSheet>
       )}
-    </>
+    </div>
   );
 }
 

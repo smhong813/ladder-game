@@ -20,7 +20,6 @@ const Ladder = () => {
   const [xLength, setXLength] = useState(0);
   const [yLength, setYLength] = useState(0);
   const [currentPlayer, setCurrentPlayer] = useState(null);
-  const [map, setMap] = useState(null);
   const [resultVisible, setResultVisible] = useState(false);
   const lang = useSelector(langSelectors.currentLang);
 
@@ -155,7 +154,6 @@ const Ladder = () => {
       return;
     }
     const map = generateLadder(players.length);
-    setMap(map);
     setResults(run(players, prizes, map));
 
     const xLength = (canvasWidth - padding * 2) / (players.length - 1);

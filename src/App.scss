@@ -1,1 +1,10 @@
+@import './styles/variables.scss';
 
+@media only screen and (min-width: $bp-sm) {
+  .app {
+    max-width: $max-width-desktop-percent;
+    margin: 0 auto;
+    padding: 0 $gutter * 3;
+    background-color: $grey-5;
+  }
+}
