@@ -5,6 +5,11 @@
 * {
   font-family: 'FilsonProRegular', 'sans-serif';
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .page {

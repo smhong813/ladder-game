@@ -1,0 +1,12 @@
+{
+  "footer": {
+    "results": {
+      "en": "Show Results",
+      "ko": "전체결과"
+    },
+    "restart": {
+      "en": "Restart",
+      "ko": "다시하기"
+    }
+  }
+}

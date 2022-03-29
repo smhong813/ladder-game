@@ -9,6 +9,7 @@ const OptionSelectItem = ({
   options,
   initialIndex,
   onChange = (name, option) => {},
+  disabled = false,
 }) => {
   return (
     <div className={`${styles.optionSelectItem} ${className}`}>
@@ -20,6 +21,7 @@ const OptionSelectItem = ({
         options={options}
         initialIndex={initialIndex}
         onChange={onChange}
+        disabled={disabled}
       />
     </div>
   );

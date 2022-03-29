@@ -1,0 +1,37 @@
+@import '../../styles/variables.scss';
+
+.popup {
+  font-family: $font-regular;
+  background-color: #ffffff;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  padding: 0 24px 28px;
+
+  .title {
+    padding: 35px 0 0;
+    font-size: 17px;
+    letter-spacing: 0.16px;
+    text-align: center;
+    color: $dark;
+  }
+
+  .list {
+    .item {
+      margin-top: 14px;
+
+      .player {
+        font-size: 13px;
+        line-height: 2.46;
+        letter-spacing: 0.1px;
+        color: rgba(0, 0, 0, 0.54);
+      }
+
+      .reward {
+        font-size: 17px;
+        line-height: 1.41;
+        letter-spacing: 0.13px;
+        color: rgba(0, 0, 0, 0.87);
+      }
+    }
+  }
+}

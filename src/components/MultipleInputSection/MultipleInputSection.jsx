@@ -28,9 +28,12 @@ const MultipleInputSection = ({
 
   const addInput = () => {
     setInputs((prev) => {
-      const newInputs = [...prev, ''];
-      onChange(newInputs);
-      return newInputs;
+      if (count !== values.length) {
+        const newInputs = [...prev, ''];
+        onChange(newInputs);
+        return newInputs;
+      }
+      return prev;
     });
   };
 
@@ -44,8 +47,6 @@ const MultipleInputSection = ({
   };
 
   useEffect(() => {
-    // console.log('inputs.length:', inputs.length);
-    // console.log('count:', count);
     if (inputs.length < count) {
       for (let i = inputs.length; i < count; i++) {
         addInput();
@@ -54,6 +55,10 @@ const MultipleInputSection = ({
       for (let i = inputs.length; i > count; i--) {
         removeInput(i);
       }
+    }
+
+    if (values.length === count) {
+      setInputs(values);
     }
   }, [count]);
 

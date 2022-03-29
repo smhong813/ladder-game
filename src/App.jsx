@@ -10,15 +10,18 @@ import SettingPopup from './pages/SettingPopup';
 import i18n from './i18n.json';
 import './App.scss';
 import Ladder from './pages/Ladder';
+import { langSelectors } from './store/slices/lang';
+import { useSelector } from 'react-redux';
 
 function App() {
   const [settingVisible, setSettingVisible] = useState(false);
+  const lang = useSelector(langSelectors.currentLang);
 
   return (
     <>
       <Header
-        title={i18n.header.title['en']}
-        description={i18n.header.description['en']}
+        title={i18n.header.title[lang]}
+        description={i18n.header.description[lang]}
         btnIcon={<MdSettings size='24px' />}
         btnOnClick={() => {
           setSettingVisible(true);
@@ -26,6 +29,7 @@ function App() {
       />
       <Routes>
         <Route path='/' element={<Home />} />
+        {/* <Route path='/' element={<Ladder />} /> */}
         <Route path='ladder' element={<Ladder />} />
       </Routes>
       {settingVisible && (

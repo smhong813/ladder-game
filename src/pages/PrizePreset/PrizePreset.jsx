@@ -12,12 +12,14 @@ import setting from '../../store/settings.json';
 import i18n from '../../i18n/i18n.json';
 import styles from './PrizePreset.module.scss';
 import { selectors as settingSelectors } from '../../store/slices/setting';
+import { langSelectors } from '../../store/slices/lang';
 
 const PrizePreset = ({ count }) => {
   const [chips, setChips] = useState([]);
   const dispatch = useDispatch();
+  const lang = useSelector(langSelectors.currentLang);
 
-  const playerPresetOptions = makeOptions(setting['prize-preset']);
+  const playerPresetOptions = makeOptions(setting['prize-preset'], lang);
   // const numberOfPlayers = useSelector(settingSelectors.player).length;
   const numberOfPlayers = count;
   console.log('numberOfPlayers:', numberOfPlayers);
@@ -30,18 +32,18 @@ const PrizePreset = ({ count }) => {
   };
   const applyPreset = () => {
     const chance = chips[0].chance;
-    let prizes = Array(numberOfPlayers).fill(chips[0].options['en'][1]);
+    let prizes = Array(numberOfPlayers).fill(chips[0].options[lang][1]);
 
     if (chance === 'one') {
       const randomIndex = Math.floor(Math.random() * numberOfPlayers);
-      prizes[randomIndex] = chips[0].options['en'][0];
+      prizes[randomIndex] = chips[0].options[lang][0];
     } else if (chance === 'half') {
       const indexArray = [];
       do {
         const randomIndex = Math.floor(Math.random() * numberOfPlayers);
         if (!indexArray.includes(randomIndex)) {
           indexArray.push(randomIndex);
-          prizes[randomIndex] = chips[0].options['en'][0];
+          prizes[randomIndex] = chips[0].options[lang][0];
         }
       } while (indexArray.length < Math.floor(numberOfPlayers / 2));
     }
@@ -59,11 +61,11 @@ const PrizePreset = ({ count }) => {
 
   return (
     <div className={styles.popup}>
-      <h2 className={styles.title}>{i18n.popup.title['prize-preset']['en']}</h2>
+      <h2 className={styles.title}>{i18n.popup.title['prize-preset'][lang]}</h2>
       <div className={styles.content}>
         <div className={styles.optionGroup}>
           <ChipsItem
-            title={i18n.popup.option.title.preset['en']}
+            title={i18n.popup.option.title.preset[lang]}
             options={playerPresetOptions}
             initialValues={['number']}
             onChange={handlePresetChange}
@@ -74,19 +76,19 @@ const PrizePreset = ({ count }) => {
             chips.length > 0 && styles.visible
           }`}
         >
-          {chips.length > 0 ? chips[0].description['en'] : 'Decsription'}
+          {chips.length > 0 ? chips[0].description[lang] : 'Decsription'}
         </p>
       </div>
       <Footer className={styles.footer}>
         <button className='outline' onClick={handleCancel}>
-          {i18n.popup.button.cancel['en']}
+          {i18n.popup.button.cancel[lang]}
         </button>
         <button
           className='solid'
           onClick={applyPreset}
           disabled={chips.length === 0}
         >
-          {i18n.popup.button.save['en']}
+          {i18n.popup.button.save[lang]}
         </button>
       </Footer>
     </div>

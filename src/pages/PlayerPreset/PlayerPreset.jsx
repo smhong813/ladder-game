@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Footer from '../../components/Footer';
 import OptionSelectItem from '../../components/OptionSelectItem';
 
@@ -12,6 +12,7 @@ import Divider from '../../components/Divider';
 import ChipsItem from '../../components/ChipsItem';
 import { actions as settingActions } from '../../store/slices/setting';
 import { actions as bottomSheetActions } from '../../store/slices/bottomSheet';
+import { langSelectors } from '../../store/slices/lang';
 
 // Preset popups(Player and Prize) don't maintain its state.
 const PlayerPreset = () => {
@@ -19,9 +20,10 @@ const PlayerPreset = () => {
   const [total, setTotal] = useState(0);
 
   const dispatch = useDispatch();
+  const lang = useSelector(langSelectors.currentLang);
 
-  const totalPlayersOptions = makeOptions(setting['total-players']);
-  const playerPresetOptions = makeOptions(setting['player-preset']);
+  const totalPlayersOptions = makeOptions(setting['total-players'], lang);
+  const playerPresetOptions = makeOptions(setting['player-preset'], lang);
 
   const handleSettingChange = (name, option) => {
     console.log('name:', name, 'option:', option);
@@ -32,7 +34,7 @@ const PlayerPreset = () => {
     console.log(chips);
   };
   const applyPreset = () => {
-    const players = chips[0].options['en'].slice(0, total);
+    const players = chips[0].options[lang].slice(0, total);
     console.log(players);
     dispatch(settingActions.setPlayers(players));
     dispatch(
@@ -51,13 +53,13 @@ const PlayerPreset = () => {
   return (
     <div className={styles.popup}>
       <h2 className={styles.title}>
-        {i18n.popup.title['player-preset']['en']}
+        {i18n.popup.title['player-preset'][lang]}
       </h2>
       <div className={styles.content}>
         <div className={styles.optionGroup}>
           <OptionSelectItem
             name='total-players'
-            title={i18n.popup.option.title['total-players']['en']}
+            title={i18n.popup.option.title['total-players'][lang]}
             options={totalPlayersOptions}
             onChange={handleSettingChange}
           />
@@ -65,7 +67,7 @@ const PlayerPreset = () => {
         <Divider />
         <div className={styles.optionGroup}>
           <ChipsItem
-            title={i18n.popup.option.title.preset['en']}
+            title={i18n.popup.option.title.preset[lang]}
             options={playerPresetOptions}
             initialValues={['number']}
             onChange={handlePresetChange}
@@ -76,19 +78,19 @@ const PlayerPreset = () => {
             chips.length > 0 && styles.visible
           }`}
         >
-          {chips.length > 0 ? chips[0].description['en'] : 'Decsription'}
+          {chips.length > 0 ? chips[0].description[lang] : 'Decsription'}
         </p>
       </div>
       <Footer className={styles.footer}>
         <button className='outline' onClick={handleCancel}>
-          {i18n.popup.button.cancel['en']}
+          {i18n.popup.button.cancel[lang]}
         </button>
         <button
           className='solid'
           disabled={chips.length === 0}
           onClick={applyPreset}
         >
-          {i18n.popup.button.save['en']}
+          {i18n.popup.button.save[lang]}
         </button>
       </Footer>
     </div>

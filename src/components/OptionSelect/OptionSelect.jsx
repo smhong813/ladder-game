@@ -11,6 +11,7 @@ const OptionSelect = ({
   options = [],
   initialIndex,
   onChange = (name, option) => {},
+  disabled = false,
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(initialIndex || 0);
   const length = options.length;
@@ -35,7 +36,7 @@ const OptionSelect = ({
       <button
         className={styles.arrowBtn}
         onClick={() => handleChange(-1)}
-        disabled={selectedIndex === 0}
+        disabled={selectedIndex === 0 || disabled}
       >
         <MdOutlineArrowBackIosNew />
       </button>
@@ -43,7 +44,7 @@ const OptionSelect = ({
       <button
         className={styles.arrowBtn}
         onClick={() => handleChange(1)}
-        disabled={selectedIndex === length - 1}
+        disabled={selectedIndex === length - 1 || disabled}
       >
         <MdOutlineArrowForwardIos />
       </button>

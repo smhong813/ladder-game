@@ -1,8 +1,8 @@
-export const makeOptions = (options) => {
+export const makeOptions = (options, lang) => {
   return options.map((option) => {
     const newOption = {
       ...option,
-      value: option.value['en'],
+      value: option.value[lang],
     };
     if (option.description) {
       newOption.description = option.description;

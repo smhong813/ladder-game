@@ -17,6 +17,8 @@ import {
   selectors as settingSelectors,
   actions as settingActions,
 } from '../../store/slices/setting';
+import { useNavigate } from 'react-router-dom';
+import { langSelectors } from '../../store/slices/lang';
 
 function Home() {
   const [players, setPlayers] = useState([]);
@@ -25,14 +27,15 @@ function Home() {
   const [playerPresetVisible, setPlayerPresetVisible] = useState(false);
   const [prizePresetVisible, setPrizePresetVisible] = useState(false);
 
+  const lang = useSelector(langSelectors.currentLang);
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handlePlayerInput = (players) => {
-    // console.log(players);
     setPlayers(players);
   };
   const handlePrizeInput = (prizes) => {
-    // console.log(prizes);
     setPrizes(prizes);
   };
 
@@ -53,9 +56,9 @@ function Home() {
         <div className={styles.playerSection}>
           <MultipleInputSection
             id='player-section'
-            title={i18n.player['en']}
+            title={i18n.player[lang]}
             headerBackgroundColor={scssVars['accent-color-3']}
-            headerBtnTitle={i18n.preset['en']}
+            headerBtnTitle={i18n.preset[lang]}
             headerBtnOnClick={() => setPlayerPresetVisible(true)}
             allowAdd
             onChange={handlePlayerInput}
@@ -65,9 +68,9 @@ function Home() {
 
         <MultipleInputSection
           id='prize-section'
-          title={i18n.prize['en']}
+          title={i18n.prize[lang]}
           headerBackgroundColor={scssVars['accent-color-2']}
-          headerBtnTitle={i18n.preset['en']}
+          headerBtnTitle={i18n.preset[lang]}
           headerBtnOnClick={() => setPrizePresetVisible(true)}
           count={players.length}
           onChange={handlePrizeInput}
@@ -76,8 +79,10 @@ function Home() {
       </main>
 
       <MainFooter
-        mainBtnTitle={i18n.footer.title['en']}
-        mainBtnOnClick={() => {}}
+        mainBtnTitle={i18n.footer.title[lang]}
+        mainBtnOnClick={() => {
+          navigate('/ladder');
+        }}
         subBtnIcon={
           <MdOutlineRefresh size='1.6rem' color={scssVars['primary-color']} />
         }
