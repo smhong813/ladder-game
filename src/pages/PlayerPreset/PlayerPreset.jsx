@@ -47,7 +47,6 @@ const PlayerPreset = () => {
   };
 
   const handleCancel = () => {
-    // TODO: Call BottomSheet's close function...
     dispatch(bottomSheetActions.close(true));
   };
   return (

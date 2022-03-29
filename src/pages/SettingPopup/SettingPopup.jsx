@@ -80,6 +80,7 @@ const SettingPopup = () => {
               0,
               bgmOptions.findIndex((item) => item.id === settings.bgm)
             )}
+            disabled={true}
           />
           <OptionSelectItem
             name='soundEffect'
@@ -92,6 +93,7 @@ const SettingPopup = () => {
                 (item) => item.id === settings.soundEffect
               )
             )}
+            disabled={true}
           />
         </div>
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MainFooter from '../../components/MainFooter';
 
@@ -21,13 +21,16 @@ const Ladder = () => {
   const [yLength, setYLength] = useState(0);
   const [currentPlayer, setCurrentPlayer] = useState(null);
   const [resultVisible, setResultVisible] = useState(false);
+
+  const [canvasWidth, setCanvasWidth] = useState(0);
+  const [canvasHeight, setCanvasHeight] = useState(0);
+
   const lang = useSelector(langSelectors.currentLang);
 
   const navigate = useNavigate();
 
+  const mainRef = useRef();
   const canvasRef = useRef();
-  const canvasWidth = window.innerWidth - 24 * 2;
-  const canvasHeight = window.innerHeight - 120 - 74 - 40 - 40 - 24;
 
   const players = useSelector(settingSelectors.player);
   const prizes = useSelector(settingSelectors.prize);
@@ -46,6 +49,11 @@ const Ladder = () => {
   const [popup, setPopup] = useState(null);
 
   const padding = 20;
+
+  useEffect(() => {
+    setCanvasWidth(mainRef.current.clientWidth - 24 * 2);
+    setCanvasHeight(mainRef.current.clientHeight - 120 - 74 - 40 - 40 - 24);
+  }, []);
 
   const drawLadder = (ctx, map, xLength, yLength) => {
     const height = map.length;
@@ -113,7 +121,7 @@ const Ladder = () => {
       setPopup(results[index]);
     }
     const ctx = canvasRef.current.getContext('2d');
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 2;
     ctx.strokeStyle = lineColors[currentPlayer];
     ctx.lineCap = 'round';
     ctx.beginPath();
@@ -150,6 +158,9 @@ const Ladder = () => {
   }, [currentPlayer]);
 
   useEffect(() => {
+    if (!canvasWidth || !canvasHeight) {
+      return;
+    }
     if (!players || players.length < 2) {
       return;
     }
@@ -171,11 +182,11 @@ const Ladder = () => {
     }
     setPlayerColors(playerColors);
     setPrizeColors(playerColors);
-  }, [players]);
+  }, [players, canvasWidth, canvasHeight]);
 
   return (
     <>
-      <main className='page'>
+      <main className='page' ref={mainRef}>
         {players.length < 2 && (
           <div className={styles.empty}>Please set players and rewards</div>
         )}
@@ -191,12 +202,14 @@ const Ladder = () => {
             </button>
           ))}
         </div>
-        <canvas
-          ref={canvasRef}
-          className={styles.canvas}
-          width={canvasWidth}
-          height={canvasHeight}
-        />
+        {canvasWidth && canvasHeight && (
+          <canvas
+            ref={canvasRef}
+            className={styles.canvas}
+            width={canvasWidth}
+            height={canvasHeight}
+          />
+        )}
         <div className={styles.prizeList}>
           {prizes.map((prize, index) => (
             <button

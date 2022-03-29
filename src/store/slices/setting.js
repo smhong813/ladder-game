@@ -1,25 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// const testPlayers = [
-//   'Sungmin',
-//   'Hannah',
-//   'Francis',
-//   'Esther',
-//   'Hoo-Chu',
-//   'Pickle',
-// ];
-// const testPrizes = [
-//   'iPhone 13 Pro',
-//   'Macbook Pro 16inch',
-//   'Job opportunity',
-//   'PR',
-//   'Water bottle',
-//   '$10',
-// ];
-
 const initialState = {
   app: {
-    lang: 'en', // TODO: change into en
+    lang: 'en',
     bgm: 'off',
     soundEffect: 'off',
     ladderComplexity: 'normal',
@@ -29,12 +12,10 @@ const initialState = {
   player: {
     preset: null,
     players: [],
-    // players: testPlayers,
   },
   prize: {
     preset: null,
     prizes: [],
-    // prizes: testPrizes,
   },
 };
 

@@ -51,7 +51,6 @@ function Home() {
 
   return (
     <>
-      {/* TODO: hardcoded 'ko' will be replaced with a value from language selector */}
       <main className={`page ${styles.home}`}>
         <div className={styles.playerSection}>
           <MultipleInputSection
